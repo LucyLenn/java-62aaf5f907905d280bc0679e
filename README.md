@@ -1,1 +1,1 @@
-My expectations from this course is to get Java programming skills and to find a new job as a Java Developer.
+Lesson 3.

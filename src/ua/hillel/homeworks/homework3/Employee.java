@@ -1,4 +1,4 @@
-package ua.hillel.homework3;
+package ua.hillel.homeworks.homework3;
 
 public class Employee {
 

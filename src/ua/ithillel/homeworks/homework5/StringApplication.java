@@ -41,22 +41,10 @@ public class StringApplication {
 
     static int findWordPosition(String source, String target) {
         return source.indexOf(target);
-
-        // по описанию задачи складывается впечатление,
-        // что обязательным условием есть принудительная проверка на принадлежность вхождения строки,
-        // а уже потом поиск индекса и в начале упоминание метода contains, если бы не возрат -1,
-        // точно было бы if (source.contains(target))...
     }
 
     static String stringReverse(String someString) {
         return new StringBuilder(someString).reverse().toString();
-
-        // как по мне, вариант разбить на отдельные строки выглядет читабельней,
-        // не понимаю пока критичность все в одну строку :(
-        // StringBuilder builder = new StringBuilder(someString);
-        // builder.reverse();
-        // String resultReverse = builder.toString();
-        // return resultReverse;
     }
 
     static String stringReverseWithoutClass(String someString) {
@@ -72,10 +60,6 @@ public class StringApplication {
 
     static boolean checkIsPalindrome(String someString) {
         return someString.equals(stringReverse(someString));
-
-        // аналогично, как понять каковы рамки и стоит ли этим забивать голову
-        // String wordReverse = stringReverse(someString);
-        // return someString.equals(wordReverse);
     }
 
     static boolean checkIsPalindromeWithoutClass(String someString) {

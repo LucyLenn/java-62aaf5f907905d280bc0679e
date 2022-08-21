@@ -8,7 +8,8 @@ public class Dog extends Animal {
     public Dog(String name) {
         super(name);
         countDog++;
-   }
+    }
+
     public static int getCountDog() {
         return countDog;
     }

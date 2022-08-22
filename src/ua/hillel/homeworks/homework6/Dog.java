@@ -2,8 +2,8 @@ package ua.hillel.homeworks.homework6;
 
 public class Dog extends Animal {
     private static int countDog;
-    private final int MAX_RUN = 500;
-    private final int MAX_SWIM = 10;
+    private static final int MAX_RUN = 500;
+    private static final int MAX_SWIM = 10;
 
     public Dog(String name) {
         super(name);

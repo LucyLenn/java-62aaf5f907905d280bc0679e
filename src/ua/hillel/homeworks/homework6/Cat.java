@@ -2,7 +2,7 @@ package ua.hillel.homeworks.homework6;
 
 public class Cat extends Animal {
     private static int countCat;
-    private final int MAX_RUN = 200;
+    private static final int MAX_RUN = 200;
 
     public Cat(String name) {
         super(name);

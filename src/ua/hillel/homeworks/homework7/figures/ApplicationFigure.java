@@ -22,34 +22,4 @@ public class ApplicationFigure {
         }
         return sum;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        ArrayList<Figure> figureSquares = new ArrayList<Figure>();
-//        figureSquares.add(new Circle(12));
-//        figureSquares.add(new Square(22));
-//        figureSquares.add(new Triangle(12, 14));
-
-    //System.out.println("Sum = " + getSumFigureSquare(figureSquares));
-    //}
-
-//    static double getSumFigureSquare(ArrayList<Figure> figureSquares) {
-//        double sum = 0;
-//
-//        for (Figure figure : figureSquares) {
-//            sum += figure.getSquare();
-//        }
-//        return sum;
-//    }
 }

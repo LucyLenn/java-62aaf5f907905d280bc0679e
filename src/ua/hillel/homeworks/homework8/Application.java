@@ -26,7 +26,7 @@ public class Application {
         int count = 0;
 
         for (String word : wordsList) {
-            if (word.equals(someString)) {      // а contains то тут со строками не подходит, потому что вместо 2, выведет 6
+            if (word.equals(someString)) {
                 count++;
             }
         }

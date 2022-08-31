@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Phonebook {
-    private final List<Record> phonebook = new ArrayList<>();   //в задании написано слово "множество записей", так случайно можно и Set прописать (:
+    private final List<Record> phonebook = new ArrayList<>();
 
     public void add(Record record) {
         phonebook.add(record);

@@ -19,7 +19,8 @@ public class FileNavigator {
 
     private void checkPathsMatch(Path path, FileData file) throws IllegalArgumentException {
         if (!file.getPath().equals(path)) {
-            throw new IllegalArgumentException(String.format("Key-Path and FileData-Path don't match. Key-Path: '%s'; FileDate-Path: '%s'.", path, file.getPath()));
+            throw new IllegalArgumentException(
+                    String.format("Key-Path and FileData-Path don't match. Key-Path: '%s'; FileDate-Path: '%s'.", path, file.getPath()));
         }
     }
 

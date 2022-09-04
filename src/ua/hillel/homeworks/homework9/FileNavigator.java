@@ -46,7 +46,7 @@ public class FileNavigator {
         for (List<FileData> filesList : filesTable.values()) {
             filesFilterBySize.addAll(filesList);
         }
-        filesFilterBySize.removeIf(e -> e.getSize() > size);
+        filesFilterBySize.removeIf(f -> f.getSize() > size);
         return filesFilterBySize;
     }
 
@@ -60,7 +60,7 @@ public class FileNavigator {
         for (List<FileData> filesList : filesTable.values()) {
             filesSortBySize.addAll(filesList);
         }
-        Collections.sort(filesSortBySize, (file1, file2) -> (int) (file1.getSize() - file2.getSize()));
+        Collections.sort(filesSortBySize, (f1, f2) -> (int) (f1.getSize() - f2.getSize()));
         return filesSortBySize;
     }
 }

@@ -61,7 +61,7 @@ public class FileNavigator {
         for (List<FileData> filesList : filesTable.values()) {
             filesSortBySize.addAll(filesList);
         }
-        Collections.sort(filesSortBySize, (f1, f2) -> (int) (f1.getSize() - f2.getSize()));
+        filesSortBySize.sort(Comparator.comparingLong(FileData::getSize));
         return filesSortBySize;
     }
 }

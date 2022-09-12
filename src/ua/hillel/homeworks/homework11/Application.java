@@ -26,7 +26,7 @@ public class Application {
         appleBox1.merge(appleBox2);
     }
 
-    private static <T> List<T> toList(T[] array) {
+    public static <T> List<T> toList(T[] array) {
         return List.of(array);
     }
 }

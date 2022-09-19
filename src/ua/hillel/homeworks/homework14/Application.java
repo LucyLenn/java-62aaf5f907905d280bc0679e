@@ -24,7 +24,7 @@ public class Application {
         catalogue.getLastThreeProducts().forEach(System.out::println);
         System.out.println(catalogue.sumBooksPrice());
 
-        catalogue.groupByType().forEach((k, v) -> {
+        catalogue.groupByCategory().forEach((k, v) -> {
             System.out.println(k + ":");
             v.forEach(System.out::println);
         });

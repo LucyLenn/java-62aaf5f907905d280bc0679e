@@ -47,10 +47,10 @@ public class Catalogue {
                         && p.getDateAdded().getYear() == LocalDate.now().getYear()
                         && p.getPrice() <= 75)
                 .map(Product::getPrice)
-                .reduce(0F, Float::sum);
+                .reduce(0.0F, Float::sum);
     }
 
-    public Map<ProductCategory, List<Product>> groupByType() {
+    public Map<ProductCategory, List<Product>> groupByCategory() {
         return products.stream()
                 .collect(Collectors.groupingBy(Product::getCategory));
     }

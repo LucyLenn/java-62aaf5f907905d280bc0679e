@@ -1,0 +1,4 @@
+FILE: src/ua/hillel/homeworks/homework16/logs/
+LEVEL: DEBUG
+MAX_SIZE: 500
+FORMAT: [%s][%s] Message:[%s]

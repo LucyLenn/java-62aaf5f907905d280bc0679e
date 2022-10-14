@@ -1,0 +1,8 @@
+[Sun Oct 09 22:03:20 EEST 2022][DEBUG] Message:[info message]
+[Sun Oct 09 22:03:20 EEST 2022][DEBUG] Message:[debug message]
+[Sun Oct 09 22:03:21 EEST 2022][DEBUG] Message:[info message]
+[Sun Oct 09 22:03:21 EEST 2022][DEBUG] Message:[debug message]
+[Sun Oct 09 22:03:21 EEST 2022][DEBUG] Message:[info message]
+[Sun Oct 09 22:03:21 EEST 2022][DEBUG] Message:[debug message]
+[Sun Oct 09 22:03:22 EEST 2022][DEBUG] Message:[info message]
+[Sun Oct 09 22:03:22 EEST 2022][DEBUG] Message:[debug message]

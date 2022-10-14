@@ -22,11 +22,12 @@ public class FileLoggerWriter implements LoggerWriter {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
             bw.write(String.format(
-                    configuration.getPattern(),
-                    new Date(),
-                    configuration.getLogLevel(),
-                    message
-            ));
+                            configuration.getPattern(),
+                            new Date(),
+                            configuration.getLogLevel(),
+                            message
+                    )
+            );
             bw.newLine();
             bw.flush();
         } catch (IOException ex) {
@@ -35,16 +36,16 @@ public class FileLoggerWriter implements LoggerWriter {
     }
 
     private void checkSize(String message) {
-       if (file.length() + message.length() > configuration.getMaxSize()) {
+        if (file.length() + message.length() > configuration.getMaxSize()) {
             createNewFile();
-           /*
-            * 4-й пункт исключен 6-м:
-            * throw new FileMaxSizeReachedException(String.format(
-            *   "Max file size: %s, current size: %s, file path: %s",
-            *   configuration.getMaxSize(),
-            *   file.length(),
-            *   file.getAbsolutePath()));
-            */
+            /*
+             * 4-й пункт исключен 6-м:
+             * throw new FileMaxSizeReachedException(String.format(
+             *   "Max file size: %s, current size: %s, file path: %s",
+             *   configuration.getMaxSize(),
+             *   file.length(),
+             *   file.getAbsolutePath()));
+             */
         }
     }
 

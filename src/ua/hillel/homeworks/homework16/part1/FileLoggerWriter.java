@@ -22,11 +22,12 @@ public class FileLoggerWriter {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
             bw.write(String.format(
-                    configuration.getPattern(),
-                    new Date(),
-                    configuration.getLogLevel(),
-                    message
-            ));
+                            configuration.getPattern(),
+                            new Date(),
+                            configuration.getLogLevel(),
+                            message
+                    )
+            );
             bw.newLine();
             bw.flush();
         } catch (IOException ex) {

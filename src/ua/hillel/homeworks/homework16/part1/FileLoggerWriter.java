@@ -1,9 +1,6 @@
 package ua.hillel.homeworks.homework16.part1;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -31,7 +28,7 @@ public class FileLoggerWriter {
             bw.newLine();
             bw.flush();
         } catch (IOException ex) {
-            throw new RuntimeException("Can't write the file", ex);
+            throw new RuntimeException(String.format("File handling error in writing a message to the logs: %s", file.getAbsolutePath()), ex);
         }
     }
 

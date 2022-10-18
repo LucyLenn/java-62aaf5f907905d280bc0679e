@@ -16,7 +16,7 @@ public class Application {
             try {
                 TimeUnit.MILLISECONDS.sleep(500);
             } catch (InterruptedException ex) {
-                throw new RuntimeException("Some mistake in method 'sleep'", ex);
+                throw new RuntimeException("Interruption occurred during sleep.", ex);
             }
         }
     }

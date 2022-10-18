@@ -31,7 +31,8 @@ public class FileLoggerWriter implements LoggerWriter {
             bw.newLine();
             bw.flush();
         } catch (IOException ex) {
-            throw new RuntimeException("Can't write the file", ex);
+            throw new RuntimeException(String.format(
+                    "File handling error in writing a message to the logs: %s", file.getAbsolutePath()), ex);
         }
     }
 

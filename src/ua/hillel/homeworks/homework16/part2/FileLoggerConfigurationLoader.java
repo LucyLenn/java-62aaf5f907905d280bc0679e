@@ -24,12 +24,13 @@ public class FileLoggerConfigurationLoader implements LoggerConfigurationLoader 
                 }
             }
         } catch (IOException ex) {
-            throw new RuntimeException("Can't read the file", ex);
+            throw new RuntimeException(String.format("File read error in loading the logging configuration: %s", path), ex);
         }
 
         if (parameters.size() != 4) {
             throw new IndexOutOfBoundsException(
-                    "Check the file against all the parameters. Must be 4 parameters, current: " + parameters.size());
+                    "Error in the number of parameters. Check the file against all the parameters. " +
+                            "Must be 4 parameters, current: " + parameters.size());
         }
 
         return new FileLoggerConfiguration(Path.of(parameters.get(0)),

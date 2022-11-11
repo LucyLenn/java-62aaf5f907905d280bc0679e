@@ -1,0 +1,6 @@
+2022-11-11 13:25:41,001 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [draw:62] - The list of orders is displayed successfully, size 1
+2022-11-11 13:25:41,007 [main] INFO  ua.hillel.homeworks.homework21.Application [main:46] - Delete order number 2
+2022-11-11 13:25:41,008 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [deliver:52] - The order number 2 is not find, removal is not possible
+2022-11-11 13:25:41,008 [main] INFO  ua.hillel.homeworks.homework21.Application [main:53] - Display the list of orders on the board
+2022-11-11 13:25:41,008 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [draw:62] - The list of orders is displayed successfully, size 1
+2022-11-11 13:25:41,008 [main] INFO  ua.hillel.homeworks.homework21.Application [main:56] - Application is end

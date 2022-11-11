@@ -1,0 +1,13 @@
+2022-11-09 21:33:56,994 [main] INFO  ua.hillel.homeworks.homework21.Application [main:12] - Application start
+2022-11-09 21:33:56,996 [main] INFO  ua.hillel.homeworks.homework21.Application [main:15] - Добавим новый заказ для name Flash
+2022-11-09 21:33:57,001 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [add:19] - Заказ добавлен, имя: Flash, номер заказа: 2
+2022-11-09 21:33:57,002 [main] INFO  ua.hillel.homeworks.homework21.Application [main:18] - Добавим новый заказ для name Batman
+2022-11-09 21:33:57,002 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [add:19] - Заказ добавлен, имя: Batman, номер заказа: 3
+2022-11-09 21:33:57,005 [main] INFO  ua.hillel.homeworks.homework21.Application [main:21] - Добавим новый заказ для name Superman
+2022-11-09 21:33:57,005 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [add:19] - Заказ добавлен, имя: Superman, номер заказа: 4
+2022-11-09 21:33:57,006 [main] INFO  ua.hillel.homeworks.homework21.Application [main:24] - Добавим новый заказ для name Wonder woman
+2022-11-09 21:33:57,006 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [add:19] - Заказ добавлен, имя: Wonder woman, номер заказа: 5
+2022-11-09 21:33:57,006 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [draw:42] - Выведем список заказов на табло
+2022-11-09 21:33:57,008 [main] INFO  ua.hillel.homeworks.homework21.CoffeeOrderBoard [draw:48] - Список заказов выведен на табло успешно
+2022-11-09 21:33:57,008 [main] INFO  ua.hillel.homeworks.homework21.Application [main:30] - Удалим ближайший на очереди заказ
+2022-11-09 21:33:57,009 [main] INFO  ua.hillel.homeworks.homework21.Application [lambda$main$0:33] - Успешно удален ближайший на очереди заказ Flash 1

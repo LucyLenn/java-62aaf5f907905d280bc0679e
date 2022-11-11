@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.hillel</groupId>
-    <artifactId>java-pro-course</artifactId>
+    <artifactId>java-pro-course-homework21</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Hillel Java Pro Project</name>
-    <description>Hillel Java Pro Project of group 62aaf5f907905d280bc0679e</description>
+    <name>Hillel Java Pro Project - Homework 21</name>
+    <description>Hillel Java Pro Project of group 62aaf5f907905d280bc0679e, homework21</description>
     <developers>
         <developer>
             <name>Olha Verlan</name>
@@ -21,9 +21,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <version.org.junit.jupiter>5.9.1</version.org.junit.jupiter>
         <version.maven.surefire.plugin>3.0.0-M7</version.maven.surefire.plugin>
-        <groupNumber>62aaf5f907905d280bc0679e</groupNumber>
-        <nameDeveloper>Olha</nameDeveloper>
-        <surnameDeveloper>Verlan</surnameDeveloper>
+        <version.org.apache.logging.log4j>2.19.0</version.org.apache.logging.log4j>
     </properties>
 
     <dependencies>
@@ -45,10 +43,14 @@
             <version>${version.org.junit.jupiter}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${version.org.apache.logging.log4j}</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>${groupNumber}-${nameDeveloper}-${surnameDeveloper}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

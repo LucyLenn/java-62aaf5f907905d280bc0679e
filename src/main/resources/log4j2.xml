@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d [%t] %-5level %logger{36} [%M:%L] - %msg%n"/>
+         </Console>
+
+        <RollingFile name = "InfoFileLog"
+                     fileName = "logs/app.info.log"
+                     filePattern = "logs/%d{yyyyMMdd}.app.info.%i.log">
+            <PatternLayout pattern="%d [%t] %-5level %logger{36} [%M:%L] - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size = "2 KB"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level = "error" onMatch="DENY" onMismatch="ACCEPT"/>
+            </Filters>
+        </RollingFile>
+
+        <RollingFile name = "ErrorFileLog"
+                     fileName = "logs/app.error.log"
+                     filePattern = "logs/%d{yyyyMMdd}.app.error.%i.log">
+            <PatternLayout pattern="%d [%t] %-5level %logger{36} [%M:%L] - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size = "2 KB"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level = "error"/>
+            </Filters>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="InfoFileLog"/>
+            <AppenderRef ref="ErrorFileLog"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

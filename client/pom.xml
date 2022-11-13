@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ua.hillel</groupId>
-    <artifactId>java-pro-course</artifactId>
+    <groupId>ua.hillel.ith-62aaf5f907905d280bc0679e.client</groupId>
+    <artifactId>application</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Hillel Java Pro Project</name>
+    <name>Hillel Java Pro Client Project</name>
     <description>Hillel Java Pro Project of group 62aaf5f907905d280bc0679e</description>
     <developers>
         <developer>

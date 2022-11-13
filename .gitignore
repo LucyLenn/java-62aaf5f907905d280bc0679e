@@ -1,5 +1,17 @@
-.idea
-.git
+# Compiled class files
+*.class
+
+# Log file
+*.log
+
+# Catalogs for outputs
 /out
 /target
-*.class
+
+# IDE configuration files
+.idea
+
+# Git files
+.git
+
+

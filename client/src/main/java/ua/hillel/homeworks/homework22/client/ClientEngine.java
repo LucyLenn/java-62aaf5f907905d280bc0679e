@@ -1,41 +1,38 @@
 package ua.hillel.homeworks.homework22.client;
 
-import lombok.SneakyThrows;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 
 public class ClientEngine {
-
     private static final Logger log = LogManager.getLogger(ClientEngine.class);
     private static final String SERVER_HOST = "localhost";
     private static final int SERVER_PORT = 8888;
 
-    private final Socket socket;
-    private final DataInputStream dataIn;
-    private final DataOutputStream dataOut;
-
-    @SneakyThrows
     public ClientEngine() {
         log.info("Client is about to start ...");
-        socket = new Socket(SERVER_HOST, SERVER_PORT);
-        log.info(
-                "Client is up and running on: {}:{}",
-                socket.getInetAddress().getHostName(),
-                socket.getLocalPort()
-        );
 
-        log.info("The client successfully connected: {}", socket.getRemoteSocketAddress());
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             DataInputStream in = new DataInputStream(socket.getInputStream())
+        ) {
+            log.info("The client successfully connected: {}", socket.getRemoteSocketAddress());
 
-        dataIn = new DataInputStream(socket.getInputStream());
-        dataOut = new DataOutputStream(socket.getOutputStream());
+            new Thread(new ClientWriter(socket)).start();
 
-        dataOut.writeUTF("Hello");
-        String inboundMessage = dataIn.readUTF();
-        System.out.println("Server response: " + inboundMessage);
+            while (true) {
+                String inboundMessage = in.readUTF();
 
+                if (inboundMessage.equalsIgnoreCase("-exit")) {
+                    break;
+                }
+                System.out.println("Server message: " + inboundMessage);
+            }
+        } catch (IOException e) {
+            log.error("Error in working with client session", e);
+            throw new RuntimeException("Error in working with client session", e);
+        }
     }
 }

@@ -10,15 +10,18 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SessionManagerTest {
+import static org.mockito.Mockito.mock;
+
+class SessionManagerTest {
 
     @Test
     @SneakyThrows
-    public void testAddSession() {
+    void testAddSession() {
+        Socket mockSocket = mock(Socket.class);
         SessionsManager sessionsManager= new SessionsManager();
 
         ClientSession clientSession = new ClientSession(
-                new Socket("localhost", 8888), "client-test", sessionsManager);
+                mockSocket, "client-test", sessionsManager);
         sessionsManager.addSession(clientSession);
         List<ClientSession> expected = sessionsManager.getActiveClients();
 

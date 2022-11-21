@@ -1,17 +1,23 @@
 package ua.hillel.homeworks.homewoks22.server;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import ua.hillel.homeworks.homework22.server.ClientSession;
 import ua.hillel.homeworks.homework22.server.SessionsManager;
 
 import java.net.Socket;
 
-public class ClientSessionTest {
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.mock;
+
+class ClientSessionTest {
+
+    @Mock
+    SessionsManager sessionsManager;
 
     @Test
-    public void testThrowRuntimeException_whenCanNotCreateIOStream() {
-        Assertions.assertThrows(RuntimeException.class,
-                () -> new ClientSession(new Socket(), "client-test", new SessionsManager()));
+    void shouldCreateClientSession_NotNull() {
+        Socket mockSocket = mock(Socket.class);
+        assertNotNull(new ClientSession(mockSocket, "client-test", sessionsManager));
     }
 }

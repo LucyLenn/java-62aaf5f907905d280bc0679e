@@ -1,17 +1,18 @@
 package ua.hillel.homeworks.homeworks22.client;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ua.hillel.homeworks.homework22.client.ClientWriter;
 
-import java.io.IOException;
 import java.net.Socket;
 
-public class ClientWriterTest {
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.mock;
+
+class ClientWriterTest {
 
     @Test
-    public void testThrowIOException_whenConnectionRefused() {
-        Assertions.assertThrows(IOException.class,
-                () -> new ClientWriter(new Socket("localhost", 8888)).run());
+    void shouldCreateClientWriter_NotNull() {
+        Socket mockSocket = mock(Socket.class);
+        assertNotNull(new ClientWriter(mockSocket));
     }
 }

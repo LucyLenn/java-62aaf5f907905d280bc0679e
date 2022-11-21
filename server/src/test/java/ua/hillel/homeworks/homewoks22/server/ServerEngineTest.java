@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ua.hillel.homeworks.homework22.server.ServerEngine;
 
-public class ServerEngineTest {
+class ServerEngineTest {
 
     @Test
-    public void testThrowRuntimeException_whenConnectionRefused() {
+    void shouldThrowRuntimeException_whenConnectionRefused() {
         Assertions.assertThrowsExactly(RuntimeException.class,
                 () -> new ServerEngine());
     }
-
 }

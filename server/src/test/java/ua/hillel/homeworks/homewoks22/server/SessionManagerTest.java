@@ -16,7 +16,7 @@ class SessionManagerTest {
 
     @Test
     @SneakyThrows
-    void testAddSession() {
+    void shouldReturnTheList_withTheAddedSession() {
         Socket mockSocket = mock(Socket.class);
         SessionsManager sessionsManager= new SessionsManager();
 

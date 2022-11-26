@@ -5,10 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.hillel</groupId>
-    <artifactId>java-pro-course</artifactId>
+    <artifactId>java-pro-course-homework24</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Hillel Java Pro Project</name>
-    <description>Hillel Java Pro Project of group 62aaf5f907905d280bc0679e</description>
+    <packaging>war</packaging>
+    <name>Hillel Java Pro Project - Homework 24</name>
+    <description>Hillel Java Pro Project of group 62aaf5f907905d280bc0679e - homework 24</description>
     <developers>
         <developer>
             <name>Olha Verlan</name>
@@ -22,6 +23,8 @@
         <version.org.junit.jupiter>5.9.1</version.org.junit.jupiter>
         <version.org.apache.logging.log4j>2.19.0</version.org.apache.logging.log4j>
         <version.maven.surefire.plugin>3.0.0-M7</version.maven.surefire.plugin>
+        <version.maven.war.plugin>3.3.2</version.maven.war.plugin>
+        <version.javax.servlet.api>4.0.1</version.javax.servlet.api>
         <groupNumber>62aaf5f907905d280bc0679e</groupNumber>
     </properties>
 
@@ -49,6 +52,12 @@
             <artifactId>log4j-core</artifactId>
             <version>${version.org.apache.logging.log4j}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${version.javax.servlet.api}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -58,6 +67,14 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${version.maven.surefire.plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version.maven.war.plugin}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
             </plugin>
         </plugins>
     </build>

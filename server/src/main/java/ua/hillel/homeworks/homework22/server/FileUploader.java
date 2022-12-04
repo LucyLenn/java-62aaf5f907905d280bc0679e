@@ -13,21 +13,13 @@ public class FileUploader {
 
     private static final Logger log = LogManager.getLogger(FileUploader.class);
     private static final String PATH_DESTINATION = "server/src/main/resources/";
-    private ClientSession clientSession;
-
-    public FileUploader(ClientSession clientSession) {
-        this.clientSession = clientSession;
-    }
 
     @SneakyThrows
     public void uploadFile(String messageIn) {
-        String messageForClient;
         String[] parameters = messageIn.split("-file\\s+");
 
         if (parameters.length != 2) {
-            messageForClient = "Error in the number of parameters";
-            log.error(messageForClient);
-            clientSession.sendMessage(messageForClient);
+            log.error("Error in the number of parameters");
             return;
         }
 
@@ -40,19 +32,14 @@ public class FileUploader {
             try {
                 FileUtils.copyFileToDirectory(srcFile, destDir);
             } catch (IOException e) {
-                messageForClient = String.format("Error in coping file, from: %s, to: %s", path, PATH_DESTINATION);
-                log.error(messageForClient, e);
-                clientSession.sendMessage(messageForClient);
+                log.error("Error in coping file, from: {}, to: {}", path, PATH_DESTINATION, e);
                 return;
             }
         } else {
-            messageForClient = String.format("The file is not exist: %s", path);
-            log.info(messageForClient);
-            clientSession.sendMessage(messageForClient);
+            log.info("The file is not exist: {}", path);
             return;
         }
 
-        messageForClient = String.format("File copied successfully, from: %s, to: %s", path, PATH_DESTINATION);
-        clientSession.sendMessage(messageForClient);
+        log.info("File copied successfully, from: {}, to: {}", path, PATH_DESTINATION);
     }
 }

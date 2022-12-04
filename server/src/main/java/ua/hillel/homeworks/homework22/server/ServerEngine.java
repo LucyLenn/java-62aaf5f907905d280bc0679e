@@ -28,12 +28,12 @@ public class ServerEngine {
                 Socket client = serverSocket.accept();
                 String clientName = "Client-" + ++connections;
 
-                ClientSession clientSession = new ClientSession(client, clientName, sessionsManager);
-                clientSession.start();
-
-                log.info("The client successfully connected: {}", client.getRemoteSocketAddress());
-                sessionsManager.sendMessageToAll(clientName + " successfully connected");
-                sessionsManager.addSession(clientSession);
+                new Thread(() -> {
+                    ClientSession clientSession = new ClientSession(client, clientName, sessionsManager);
+                    log.info("The client successfully connected: {}", client.getRemoteSocketAddress());
+                    sessionsManager.sendMessageToAll(clientName + " successfully connected");
+                    sessionsManager.addSession(clientSession);
+                });
             }
 
         } catch (IOException e) {

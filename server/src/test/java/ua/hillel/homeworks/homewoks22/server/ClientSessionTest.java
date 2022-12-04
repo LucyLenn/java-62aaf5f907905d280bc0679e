@@ -1,7 +1,6 @@
 package ua.hillel.homeworks.homewoks22.server;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import ua.hillel.homeworks.homework22.server.ClientSession;
 import ua.hillel.homeworks.homework22.server.SessionsManager;
 
@@ -12,12 +11,9 @@ import static org.mockito.Mockito.mock;
 
 class ClientSessionTest {
 
-    @Mock
-    SessionsManager sessionsManager;
-
     @Test
     void shouldCreateClientSession_NotNull() {
         Socket mockSocket = mock(Socket.class);
-        assertNotNull(new ClientSession(mockSocket, "client-test", sessionsManager));
+        assertNotNull(new ClientSession(mockSocket, "client-test", new SessionsManager()));
     }
 }

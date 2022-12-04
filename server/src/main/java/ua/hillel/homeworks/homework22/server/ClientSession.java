@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.time.LocalDateTime;
 
-public class ClientSession extends Thread {
+public class ClientSession implements Runnable {
     private static final Logger log = LogManager.getLogger(ClientSession.class);
     private final Socket socket;
     private final String clientName;
@@ -51,7 +51,7 @@ public class ClientSession extends Thread {
                     break;
                 }
                 if (inboundMessage.startsWith("-file")) {
-                    new FileUploader(this).uploadFile(inboundMessage);
+                    new FileUploader().uploadFile(inboundMessage);
                     continue;
                 }
 
@@ -90,6 +90,4 @@ public class ClientSession extends Thread {
         }
 
     }
-
 }
-

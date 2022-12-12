@@ -39,7 +39,7 @@ public class FileStorageReader implements StorageReader {
             while (inChannel.read(byteBuffer) != -1) {
                 byteBuffer.flip();
 
-                while (byteBuffer.hasRemaining()) {
+                if (byteBuffer.hasRemaining()) {
                     byte[] arrayBytes = new byte[byteBuffer.remaining()];
                     byteBuffer.get(arrayBytes);
                     lastReadPositionInFile = inChannel.position();

@@ -1,4 +1,4 @@
-INSERT INTO Mainland (name)
+INSERT INTO mainland (name)
 VALUES ('Eurasia'),
        ('North America'),
        ('South America'),

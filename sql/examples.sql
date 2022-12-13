@@ -1,32 +1,45 @@
-SELECT *
-FROM mainland;
-
-SELECT *
-FROM country;
-
-SELECT *
-FROM city;
-
-SELECT id, name, population
-FROM city;
-
-SELECT *
+-- Получение в одном запросе всех городов и стран к которым они относят
+SELECT city.name, country.name
 FROM city
-WHERE country_id = 6;
+         JOIN country ON city.country_id = country.id;
 
-SELECT city.*
-FROM city AS city
-         LEFT JOIN country ON city.country_id = country.id
-WHERE country.name = 'Greece';
-
-SELECT id, name, population
+-- Получение общего числа населения для конкретного города
+SELECT name, population
 FROM city
-WHERE population > 1000000;
+WHERE name = 'Volos';
 
-UPDATE mainland
-SET existing = FALSE
-WHERE name = 'Pangea';
+-- Получение общего числа населения для конкретной страны
+SELECT sum(city.population), country.name
+FROM city
+         JOIN country ON city.country_id = country.id
+WHERE country.name = 'Greece'
+GROUP BY country.name;
 
+-- Получение в одном запросе среднего количества населения для каждой из стран
+SELECT avg(city.population), country.name
+FROM city
+         JOIN country ON city.country_id = country.id
+GROUP BY country.name;
+
+-- Обновление значения населения конкретного города (с применением транзакции)
+-- действие одно, можно было бы обойтись без явного указания транзакции
+BEGIN;
+UPDATE city
+SET population = 111111
+WHERE name = 'Volos';
+COMMIT;
+
+-- Удаление в одном запросе нескольких городов (с применением транзакции)
+-- действие одно, можно было бы обойтись без явного указания транзакции
+BEGIN;
 DELETE
-FROM mainland
-WHERE name = 'Pangea';
+FROM city
+WHERE name = 'Galatsi'
+   OR name = 'Wels';
+COMMIT;
+
+-- Получение в одном запросе количества городов для каждой из стран
+SELECT count(city.id), country.name
+FROM city
+         JOIN country ON city.country_id = country.id
+GROUP BY country.name;

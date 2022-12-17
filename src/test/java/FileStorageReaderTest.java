@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 class FileStorageReaderTest {
-
     Path pathFile = Path.of("src", "main", "resources", "files", "file1.txt");
     FileStorageReader fileStorageReader = new FileStorageReader();
 

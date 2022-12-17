@@ -14,9 +14,6 @@ import java.util.stream.Stream;
 
 class FileStorageReaderTest {
 
-    // хотела использовать временную директорию, но вылетает с ошибкой
-    // если правильно поняла, то это трабл с какой-то определенной версии
-
     Path pathFile = Path.of("src", "main", "resources", "files", "file1.txt");
     FileStorageReader fileStorageReader = new FileStorageReader();
 

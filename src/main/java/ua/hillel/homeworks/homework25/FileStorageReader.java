@@ -47,7 +47,7 @@ public class FileStorageReader implements StorageReader {
     }
 
     @SneakyThrows
-    private List<byte[]> getListArrayBytes(List<byte[]> listArrayBytes, FileChannel inChannel, int chunkSize){
+    private List<byte[]> getListArrayBytes(List<byte[]> listArrayBytes, FileChannel inChannel, int chunkSize) {
         ByteBuffer byteBuffer = ByteBuffer.allocate(chunkSize);
 
         while (inChannel.read(byteBuffer) != -1) {

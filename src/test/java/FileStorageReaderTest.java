@@ -4,6 +4,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import ua.hillel.homeworks.homework25.FileStorageReader;
+import ua.hillel.homeworks.homework25.Resume;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
@@ -20,7 +21,7 @@ class FileStorageReaderTest {
     FileStorageReader fileStorageReader = new FileStorageReader();
 
     @Test
-    public void givenExistentPath_whenConfirmsFileExists_thenCorrect() {
+    void givenExistentPath_whenConfirmsFileExists_thenCorrect() {
         Assertions.assertTrue(Files.exists(pathFile));
     }
 
@@ -34,10 +35,10 @@ class FileStorageReaderTest {
 
     @ParameterizedTest
     @MethodSource("expectedArraysAndChunkSizeProvider")
-    void shouldReadExistingFile_fromBeginFile_WithChunkSize_AndReturnArrayFromFirstIndexInList(
+    void shouldReadExistingFile_WithChunkSize_AndReturnArrayFromFirstIndexInList(
             byte[] expectedArray, int chunkSize) {
 
-        List<byte[]> listArrayBytes = fileStorageReader.read(pathFile.toFile(), chunkSize, 0L);
+        List<byte[]> listArrayBytes = fileStorageReader.read(pathFile.toFile(), chunkSize);
         Assertions.assertArrayEquals(listArrayBytes.get(0), expectedArray);
     }
 
@@ -51,10 +52,12 @@ class FileStorageReaderTest {
 
     @ParameterizedTest
     @MethodSource("expectedArraysAndChunkSizeAndPositionProvider")
-    void shouldReadExistingFile_fromNotBeginFilePosition_WithChunkSize_AndReturnArrayFromFirstIndexInList(
+    void shouldReadExistingFile_fromResume_AndReturnArrayFromFirstIndexInList(
             byte[] expectedArray, int chunkSize, long position) {
 
-        List<byte[]> listArrayBytes = fileStorageReader.read(pathFile.toFile(), chunkSize, position);
+        Resume resume = new Resume(pathFile.toFile(), chunkSize, position);
+
+        List<byte[]> listArrayBytes = fileStorageReader.read(resume.lastReadFile(), resume);
         Assertions.assertArrayEquals(listArrayBytes.get(0), expectedArray);
     }
 
@@ -67,8 +70,8 @@ class FileStorageReaderTest {
     }
 
     @Test
-    void shouldReadExistingFile_fromBeginFile_WithChunkSize_AndReturnSizeListArrayBytes() {
-        List<byte[]> listArrayBytes = fileStorageReader.read(pathFile.toFile(), 3, 0);
-        Assertions.assertEquals(listArrayBytes.size(), 3);
+    void shouldReadExistingFile_WithChunkSize_AndReturnSizeListArrayBytes() {
+        List<byte[]> listArrayBytes = fileStorageReader.read(pathFile.toFile(), 3);
+        Assertions.assertEquals(3, listArrayBytes.size());
     }
 }

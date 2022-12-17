@@ -3,7 +3,6 @@ package ua.hillel.homeworks.homework25;
 import lombok.SneakyThrows;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -12,12 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileStorageReader implements StorageReader {
-    private Resume resume;
-
-    public Resume getResume() {
-        return resume;
-    }
-
     @Override
     @SneakyThrows
     public byte[] read(File file) {
@@ -25,33 +18,48 @@ public class FileStorageReader implements StorageReader {
     }
 
     @Override
-    public List<byte[]> read(File file, int chunkSize, long position) {
+    @SneakyThrows
+    public List<byte[]> read(File file, int chunkSize) {
 
         List<byte[]> listArrayBytes = new ArrayList<>();
-        long lastReadPositionInFile = 0L;
 
         try (RandomAccessFile reader = new RandomAccessFile(file, "r");
              FileChannel inChannel = reader.getChannel()) {
 
-            reader.seek(position);
-            ByteBuffer byteBuffer = ByteBuffer.allocate(chunkSize);
-
-            while (inChannel.read(byteBuffer) != -1) {
-                byteBuffer.flip();
-
-                if (byteBuffer.hasRemaining()) {
-                    byte[] arrayBytes = new byte[byteBuffer.remaining()];
-                    byteBuffer.get(arrayBytes);
-                    lastReadPositionInFile = inChannel.position();
-                    listArrayBytes.add(arrayBytes);
-                }
-                byteBuffer.clear();
-            }
-            return listArrayBytes;
-
-        } catch (IOException e) {
-            resume = new Resume(file, chunkSize, lastReadPositionInFile);
-            throw new ResumeReadFileException("Error in reading file: " + file, e);
+            return getListArrayBytes(listArrayBytes, inChannel, chunkSize);
         }
+    }
+
+    @Override
+    @SneakyThrows
+    public List<byte[]> read(File file, Resume resume) {
+
+        List<byte[]> listArrayBytes = new ArrayList<>();
+
+        try (RandomAccessFile reader = new RandomAccessFile(file, "r");
+             FileChannel inChannel = reader.getChannel()) {
+
+            reader.seek(resume.lastReadPositionInFile());
+            int chunkSize = resume.chunkSize();
+
+            return getListArrayBytes(listArrayBytes, inChannel, chunkSize);
+        }
+    }
+
+    @SneakyThrows
+    private List<byte[]> getListArrayBytes(List<byte[]> listArrayBytes, FileChannel inChannel, int chunkSize){
+        ByteBuffer byteBuffer = ByteBuffer.allocate(chunkSize);
+
+        while (inChannel.read(byteBuffer) != -1) {
+            byteBuffer.flip();
+
+            if (byteBuffer.hasRemaining()) {
+                byte[] arrayBytes = new byte[byteBuffer.remaining()];
+                byteBuffer.get(arrayBytes);
+                listArrayBytes.add(arrayBytes);
+            }
+            byteBuffer.clear();
+        }
+        return listArrayBytes;
     }
 }

@@ -6,5 +6,7 @@ import java.util.List;
 public interface StorageReader {
     byte[] read(File file);
 
-    List<byte[]> read(File file, int chunkSize, long positionPoint);
+    List<byte[]> read(File file, int chunkSize);
+
+    List<byte[]> read(File file, Resume resume);
 }

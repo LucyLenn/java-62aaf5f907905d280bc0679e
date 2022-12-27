@@ -2,6 +2,7 @@ package ua.hillel.homeworks.homework28;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ua.hillel.homeworks.homework28.component.Cart;
 
 import java.util.Scanner;
 

@@ -1,6 +1,7 @@
-package ua.hillel.homeworks.homework28;
+package ua.hillel.homeworks.homework28.component;
 
 import org.springframework.stereotype.Component;
+import ua.hillel.homeworks.homework28.Product;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;

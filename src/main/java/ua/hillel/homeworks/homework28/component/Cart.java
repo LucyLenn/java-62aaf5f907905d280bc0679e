@@ -1,8 +1,8 @@
-package ua.hillel.homeworks.homework28;
+package ua.hillel.homeworks.homework28.component;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import ua.hillel.homeworks.homework28.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,6 @@ public class Cart {
     private final ProductRepository productRepository;
     private final List<Product> productCart = new ArrayList<>();
 
-    @Autowired
     public Cart(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }

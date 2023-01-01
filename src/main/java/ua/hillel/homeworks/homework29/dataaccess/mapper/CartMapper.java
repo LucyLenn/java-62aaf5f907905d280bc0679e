@@ -25,6 +25,7 @@ public class CartMapper implements ResultSetExtractor<Cart> {
         }
 
         Cart cart = new Cart();
+        cart.setId(rs.getLong("cart_id"));
         cart.getProductCart().addAll(productCart);
         return cart;
     }

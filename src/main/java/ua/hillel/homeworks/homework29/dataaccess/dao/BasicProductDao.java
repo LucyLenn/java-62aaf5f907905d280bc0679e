@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class ProductDaoBasic implements ProductDaoService {
+public class BasicProductDao implements ProductDaoService {
 
     private static final String FIND_BY_ID_QUERY = "SELECT id, name, price FROM products WHERE id = ?";
     private static final String FIND_ALL_QUERY = "SELECT id, name, price FROM products";
@@ -20,7 +20,7 @@ public class ProductDaoBasic implements ProductDaoService {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public ProductDaoBasic(DataSource dataSource) {
+    public BasicProductDao(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

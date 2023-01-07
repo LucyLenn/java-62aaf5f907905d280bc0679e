@@ -20,7 +20,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <version.maven.surefire.plugin>3.0.0-M7</version.maven.surefire.plugin>
-        <version.org.junit.jupiter>4.13.2</version.org.junit.jupiter>
         <version.org.projectlombok>1.18.24</version.org.projectlombok>
         <version.org.junit.jupiter>5.9.1</version.org.junit.jupiter>
         <version.org.postgresql>42.5.1</version.org.postgresql>

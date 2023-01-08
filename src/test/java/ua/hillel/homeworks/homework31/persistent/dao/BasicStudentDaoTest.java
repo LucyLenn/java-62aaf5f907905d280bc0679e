@@ -32,14 +32,12 @@ class BasicStudentDaoTest {
         Assertions.assertEquals(1, students.size());
     }
 
-
     @Test
     @Order(2)
     void testFindStudentById_shouldReturnPresent() {
         Optional<Student> student = studentService.findById(studentTest.getId());
         Assertions.assertTrue(student.isPresent());
     }
-
 
     @Test
     @Order(3)

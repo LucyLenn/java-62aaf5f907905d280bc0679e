@@ -12,8 +12,8 @@ public class HibernateSession {
 
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
-      public static SessionFactory getSessionFactory() {
-           return sessionFactory;
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 
     @SneakyThrows
@@ -22,7 +22,7 @@ public class HibernateSession {
         return makeSessionFactory(serviceRegistry);
     }
 
-    private static ServiceRegistry configureServiceRegistry(){
+    private static ServiceRegistry configureServiceRegistry() {
         StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder();
 
         registryBuilder.applySetting("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");

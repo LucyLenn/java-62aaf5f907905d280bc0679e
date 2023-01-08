@@ -15,7 +15,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-
 @Entity
 @Table(name = "Student")
 public class Student {

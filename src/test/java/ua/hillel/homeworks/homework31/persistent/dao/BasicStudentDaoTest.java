@@ -17,7 +17,7 @@ import java.util.Optional;
 class BasicStudentDaoTest {
 
     private static Student studentTest;
-    StudentDaoService studentService = new BasicStudentDao();
+    private StudentDaoService studentService = new BasicStudentDao();
 
     @BeforeAll
     static void setUp() {

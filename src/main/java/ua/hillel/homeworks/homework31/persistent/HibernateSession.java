@@ -12,6 +12,9 @@ public class HibernateSession {
 
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
+    private HibernateSession() {
+    }
+
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }

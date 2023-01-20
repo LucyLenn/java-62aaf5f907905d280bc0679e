@@ -6,3 +6,4 @@
 *.class
 *.iml
 *.yml
+!src/main/resources/*.yml
